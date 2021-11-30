@@ -4,6 +4,7 @@ import BasicMeta from "../../../components/meta/BasicMeta";
 import OpenGraphMeta from "../../../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../../../components/meta/TwitterCardMeta";
 import TagPostList from "../../../components/TagPostList";
+import Banner from "../../../components/Banner";
 import config from "../../../lib/config";
 import { countPosts, listPostContent, PostContent } from "../../../lib/posts";
 import { getTag, listTags, TagContent } from "../../../lib/tags";
@@ -12,13 +13,14 @@ import Head from "next/head";
 type Props = {
   posts: PostContent[];
   tag: TagContent;
+  tags: TagContent[];
   page?: string;
   pagination: {
     current: number;
     pages: number;
   };
 };
-export default function Index({ posts, tag, pagination, page }: Props) {
+export default function Index({ posts, tag, tags, pagination, page }: Props) {
   const url = `/posts/tags/${tag.name}` + (page ? `/${page}` : "");
   const title = tag.name;
   return (
@@ -26,7 +28,15 @@ export default function Index({ posts, tag, pagination, page }: Props) {
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      <TagPostList posts={posts} tag={tag} pagination={pagination} />
+
+      <Banner
+        bannerUrl="/images/banner-home.jpg"
+        heading="Art Club HKU"
+        subHeading="香港大學美術學會"
+        mode="page"
+      />
+
+      <TagPostList posts={posts} tag={tag} tags={tags} pagination={pagination} />
     </Layout>
   );
 }
@@ -40,6 +50,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     slug
   );
   const tag = getTag(slug);
+  const tags = listTags();
   const pagination = {
     current: page ? parseInt(page as string) : 1,
     pages: Math.ceil(countPosts(slug) / config.posts_per_page),
@@ -47,9 +58,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const props: {
     posts: PostContent[];
     tag: TagContent;
+    tags: TagContent[];
     pagination: { current: number; pages: number };
     page?: string;
-  } = { posts, tag, pagination };
+  } = { posts, tag, tags, pagination };
   if (page) {
     props.page = page;
   }

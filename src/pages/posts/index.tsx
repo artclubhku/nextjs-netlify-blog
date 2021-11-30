@@ -7,6 +7,7 @@ import PostList from "../../components/PostList";
 import config from "../../lib/config";
 import { countPosts, listPostContent, PostContent } from "../../lib/posts";
 import { listTags, TagContent } from "../../lib/tags";
+import Banner from "../../components/Banner";
 import Head from "next/head";
 
 type Props = {
@@ -25,6 +26,12 @@ export default function Index({ posts, tags, pagination }: Props) {
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
+      <Banner
+        bannerUrl="images/banner-posts.jpg"
+        heading="Posts"
+        subHeading="Blog and posts"
+        mode="page"
+      />
       <PostList posts={posts} tags={tags} pagination={pagination} />
     </Layout>
   );
