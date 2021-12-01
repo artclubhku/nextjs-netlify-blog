@@ -141,6 +141,7 @@ collections:
         name: "images"
         widget: "image"
         choose_url: true
+        allow_multiple: true
         media_folder: "/public/images/{{slug}}"
         media_library:
           config:
