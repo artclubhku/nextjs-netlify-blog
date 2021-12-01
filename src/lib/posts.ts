@@ -11,6 +11,8 @@ export type PostContent = {
   readonly slug: string;
   readonly tags?: string[];
   readonly fullPath: string;
+  readonly banner?: string;
+  readonly subHeading?: string;
 };
 
 let postCache: PostContent[];
@@ -40,6 +42,8 @@ export function fetchPostContent(): PostContent[] {
         tags: string[];
         slug: string;
         fullPath: string,
+        banner?: string,
+        subHeading?: string,
       };
       matterData.fullPath = fullPath;
 
@@ -48,7 +52,7 @@ export function fetchPostContent(): PostContent[] {
       // Validate slug string
       if (matterData.slug !== slug) {
         throw new Error(
-          "slug field not match with the path of its content source"
+          `slug field (${matterData.slug}) not match with the path of its content source (${slug})`
         );
       }
 
@@ -65,18 +69,22 @@ export function fetchPostContent(): PostContent[] {
   return postCache;
 }
 
-export function countPosts(tag?: string): number {
+export function countPosts(tag?: string, excludePages?: boolean,): number {
   return fetchPostContent().filter(
     (it) => !tag || (it.tags && it.tags.includes(tag))
+  ).filter(
+    (it) => excludePages || (it.tags && !it.tags.includes('pages'))
   ).length;
 }
 
 export function listPostContent(
   page: number,
   limit: number,
-  tag?: string
+  tag?: string,
+  excludePages?: boolean,
 ): PostContent[] {
   return fetchPostContent()
     .filter((it) => !tag || (it.tags && it.tags.includes(tag)))
+    .filter((it) => excludePages || (it.tags && !it.tags.includes('pages')))
     .slice((page - 1) * limit, page * limit);
 }

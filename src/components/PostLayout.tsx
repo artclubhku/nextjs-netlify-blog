@@ -12,6 +12,7 @@ import { SocialList } from "./SocialList";
 import TagButton from "./TagButton";
 import { getAuthor } from "../lib/authors";
 import { getTag } from "../lib/tags";
+import Banner from './Banner';
 
 type Props = {
   title: string;
@@ -20,6 +21,8 @@ type Props = {
   tags: string[];
   author: string;
   description?: string;
+  banner?: string;
+  subHeading: string;
   children: React.ReactNode;
 };
 export default function PostLayout({
@@ -29,6 +32,8 @@ export default function PostLayout({
   author,
   tags,
   description = "",
+  banner,
+  subHeading,
   children,
 }: Props) {
   const keywords = tags.map(it => getTag(it).name);
@@ -59,6 +64,13 @@ export default function PostLayout({
         author={authorName}
         description={description}
       />
+      <Banner
+        heading={title}
+        subHeading={subHeading}
+        mode="post"
+        createdOn={date}
+        bannerUrl={banner || "/images/banner-post.jpg"}
+      />
       <div className={"container"}>
         <article>
           <header>
@@ -74,7 +86,7 @@ export default function PostLayout({
           </header>
           <div className={styles.content}>{children}</div>
           <ul className={"tag-list"}>
-            {tags.map((it, i) => (
+            {tags.filter(tag => tag !== 'pages').map((it, i) => (
               <li key={i}>
                 <TagButton tag={getTag(it)} />
               </li>
@@ -92,7 +104,7 @@ export default function PostLayout({
         {`
             .container {
               display: block;
-              max-width: 36rem;
+              max-width: 60rem;
               width: 100%;
               margin: 0 auto;
               padding: 0 1.5rem;

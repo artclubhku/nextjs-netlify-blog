@@ -1,19 +1,21 @@
 {
-  "base_url": "https://wutali-nextjs-netlify-blog.netlify.app",
-  "site_title": "Next.js Netlify Blog",
-  "site_description": "Next.js blog template for Netlify",
+  "base_url": "https://artclubhku.tk",
+  "site_title": "Art Club HKU",
+  "site_description": "Offical Page for Art Club HKU",
   "site_keywords": [
     {
-      "keyword": "Next.js"
+      "keyword": "HKUSU"
     },
     {
-      "keyword": "Netlify"
+      "keyword": "Art"
     },
     {
-      "keyword": "React"
+      "keyword": "HKU"
     }
   ],
+  "site_author": "Art Club HKU",
   "posts_per_page": 5,
   "twitter_account": "@my-account",
-  "github_account": "wutali"
+  "github_account": "artclubhkusu",
+  "instagram_account": "artclub_hkusu"
 }

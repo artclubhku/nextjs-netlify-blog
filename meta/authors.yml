@@ -1,6 +1,13 @@
 authors:
-  - slug: wutali
-    name: Takahiro Fujiwara
+  - slug: artClub
+    name: Art Club, HKU
     introduction:
-      Co-founder and CTO at Fuller, Inc. / Software & Data Engineer /
-      Python / Golang / React
+      Art Club, HKU
+  - slug: irisChan
+    name: Iris Chan
+    introduction:
+      Publicity & Promotion, 2021-2022
+  - slug: ivanNg
+    name: Ivan Ng
+    introduction:
+      Publicity & Finance, 2021-2022

@@ -7,6 +7,14 @@ export function SocialList({}) {
   return (
     <div>
       <a
+        title="GitHub"
+        href={`https://www.instagram.com/${config.instagram_account}/`}
+        target="_blank"
+        rel="noopener"
+      >
+        <img src="/instagram-alt.svg" width={24} height={24}/>
+      </a>
+      <a
         title="Twitter"
         href={`https://twitter.com/${config.twitter_account}`}
         target="_blank"

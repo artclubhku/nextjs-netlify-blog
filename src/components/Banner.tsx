@@ -11,13 +11,12 @@ export default function Banner({
 	heading: string;
 	subHeading: string;
 	lastupdate?: string;
-	createdOn?: string;
+	createdOn?: Date;
 	bannerUrl: string;
 	mode: string;
 }) {
   return (
     <>
-      {/* Page Header */}
       <header className="masthead" style={{backgroundImage: `url(${bannerUrl})`}}>
         <div className="container position-relative px-4 px-lg-5">
           <div className="row gx-4 gx-lg-5 justify-content-center">

@@ -5,6 +5,7 @@ import BasicMeta from "../../../components/meta/BasicMeta";
 import OpenGraphMeta from "../../../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../../../components/meta/TwitterCardMeta";
 import PostList from "../../../components/PostList";
+import Banner from "../../../components/Banner";
 import config from "../../../lib/config";
 import { countPosts, listPostContent, PostContent } from "../../../lib/posts";
 import { listTags, TagContent } from "../../../lib/tags";
@@ -26,6 +27,12 @@ export default function Page({ posts, tags, pagination, page }: Props) {
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
+      <Banner
+        bannerUrl="/images/banner-home.jpg"
+        heading="Posts"
+        subHeading="Blog and posts"
+        mode="page"
+      />
       <PostList posts={posts} tags={tags} pagination={pagination} />
     </Layout>
   );

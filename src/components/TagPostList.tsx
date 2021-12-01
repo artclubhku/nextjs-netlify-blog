@@ -43,7 +43,7 @@ export default function TagPostList({ posts, tag, tags, pagination }: Props) {
           />
         </div>
         <ul className={"categories"}>
-          {tags.map((it, i) => (
+          {tags.filter(tag => tag.slug !== 'pages').map((it, i) => (
             <li key={i}>
               <TagLink tag={it} />
             </li>

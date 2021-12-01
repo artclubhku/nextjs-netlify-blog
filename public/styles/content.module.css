@@ -1,16 +1,9 @@
-.content {
-  font-family: "Ubuntu", sans-serif;
-  color: #222;
-  font-weight: 200;
-}
-
 .content time {
   color: #9b9b9b;
 }
 
 .content p {
-  line-height: 1.5rem;
-  margin: 1.5rem 0 0 0;
+  margin: 2rem 0;
 }
 
 .content a {
@@ -126,6 +119,8 @@
 
 .content img {
   width: 100%;
+  margin: 20px 10px;
+  border-radius: 1%;
 }
 
 @media (min-width: 769px) {

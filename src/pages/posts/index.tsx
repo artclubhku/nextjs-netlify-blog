@@ -18,6 +18,7 @@ type Props = {
     pages: number;
   };
 };
+
 export default function Index({ posts, tags, pagination }: Props) {
   const url = "/posts";
   const title = "All posts";
@@ -27,7 +28,7 @@ export default function Index({ posts, tags, pagination }: Props) {
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
       <Banner
-        bannerUrl="images/banner-posts.jpg"
+        bannerUrl="/images/banner-home.jpg"
         heading="Posts"
         subHeading="Blog and posts"
         mode="page"
