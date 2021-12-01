@@ -4,6 +4,7 @@ backend:
 media_folder: public/images
 public_folder: /images
 publish_mode: editorial_workflow
+show_preview_links: true
 
 collections:
   - name: "config"
@@ -97,6 +98,8 @@ collections:
     slug: "{{slug}}"
     identifier_field: slug
     summary: "{{title}}"
+    media_folder: '{{media_folder}}/{{slug}}'
+    public_folder: '{{public_folder}}/{{slug}}'
     fields:
       - label: "Slug"
         name: "slug"
