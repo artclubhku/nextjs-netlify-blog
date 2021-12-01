@@ -98,8 +98,6 @@ collections:
     slug: "{{slug}}"
     identifier_field: slug
     summary: "{{title}}"
-    media_folder: '{{media_folder}}/{{slug}}'
-    public_folder: '{{public_folder}}/{{slug}}'
     fields:
       - label: "Slug"
         name: "slug"
@@ -140,10 +138,10 @@ collections:
             - "tags.*.name"
           valueField: "tags.*.slug"
       - label: "Pictures"
-        name: "thumbnail"
+        name: "images"
         widget: "image"
         choose_url: true
-        media_folder: "images"
+        media_folder: "/public/images/{{slug}}"
         media_library:
           config:
             multiple: true
