@@ -139,6 +139,14 @@ collections:
           displayFields:
             - "tags.*.name"
           valueField: "tags.*.slug"
+      - label: "Pictures"
+        name: "thumbnail"
+        widget: "image"
+        choose_url: true
+        media_folder: "images"
+        media_library:
+          config:
+            multiple: true
       - label: "Body"
         name: "body"
         widget: "markdown"
